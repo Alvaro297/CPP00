@@ -1,5 +1,8 @@
 #include "phoneBook.hpp"
 
+PhoneBook::PhoneBook(){ std::cout << "Constructor of phoneBook" <<std::endl; }
+PhoneBook::~PhoneBook(){ std::cout << "Destructor of phoneBook" << std::endl;}
+
 Contact newContactFill() {
 	Contact contactFill;
 	std::string input;
@@ -26,8 +29,19 @@ Contact newContactFill() {
 	input.clear();
 	do
 	{
+		bool	isAllDigit = true;
+		int		i = 0;
 		std::cout << "PhoneNumber ";
 		std::getline(std::cin, input);
+		while (i < input.length() || isAllDigit == false)
+		{
+			if (!isdigit(input[i]))
+				isAllDigit = false;
+			i++;
+		}
+		if (!input.empty() && isAllDigit)
+			break;
+	std::cout << "Invalid phone number! Only digits allowed." << std::endl;
 	} while (input.empty());
 	contactFill.setPhoneNumber(input);
 	input.clear();
@@ -68,11 +82,13 @@ void PhoneBook::displayContacts() const {
 	std::cout << std::setw(10) << "Index" << "|"
 			  << std::setw(10) << "First Name" << "|"
 			  << std::setw(10) << "Last Name" << "|"
+			  << std::setw(10) << " Phone Number" << "|"
 			  << std::setw(10) << "Nickname" << std::endl;
 	for (int i = 0; i < contactCount; ++i) {
 		std::cout << std::setw(10) << i << "|"
 				  << std::setw(10) << truncateString(contacts[i].getFirstName()) << "|"
 				  << std::setw(10) << truncateString(contacts[i].getLastName()) << "|"
+				  << std::setw(10) << truncateString(contacts[i].getPhoneNumber()) << "|"
 				  << std::setw(10) << truncateString(contacts[i].getNickname()) << std::endl;
 	}
 }

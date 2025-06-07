@@ -39,6 +39,11 @@ Account::~Account()
 			  << "closed" << std::endl;
 }
 
+void Account::_displayTimestamp(void)
+{
+	std::cout << "[19920104_091532] ";
+}
+
 void Account::displayAccountsInfos(void) {
 	_displayTimestamp();
 	std::cout << " accounts:" << getNbAccounts()

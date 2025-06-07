@@ -1,5 +1,5 @@
 # include <iostream>
-
+#include <sstream>
 #include "phoneBook.hpp"
 
 int main() {
@@ -24,7 +24,8 @@ int main() {
 					std::cout << "Invalid index!" << std::endl; 
 				else
 				{
-					index = std::stoi(input);
+					std::istringstream iss(input);
+					iss >> index;
 					phonebook.searchContact(index);
 					break ;
 				}

@@ -1,10 +1,10 @@
-TARGET = phoneBook
+TARGET = account
 
 CXX = g++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp phoneBook.cpp Contact.cpp
+SRCS = tests.cpp Account.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -22,7 +22,7 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	rm -rf $(TARGET)
-
+	
 re: clean all
 
 .PHONY: all clean re

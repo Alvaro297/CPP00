@@ -19,6 +19,10 @@ $(TARGET): $(OBJS)
 clean:
 	rm -f $(OBJS) $(TARGET)
 
+fclean: clean
+	rm -rf $(NAME)
+	rm -rf $(TARGET)
+
 re: clean all
 
 .PHONY: all clean re
