@@ -6,12 +6,16 @@ PhoneBook::~PhoneBook() { std::cout << "Destructor  of phoneBook" << std::endl; 
 std::string removeSpaces(const std::string& str)
 {
 	std::string result;
+	bool	allSpaces = false;
 	for (size_t i = 0; i < str.length(); i++)
 	{
-		if (!isspace(str[i]))
+		if (!isspace(str[i]) || allSpaces)
+		{
 			result += str[i];
+			allSpaces = true;
+		}
 	}
-	return result;
+	return (result);
 }
 
 Contact newContactFill()
