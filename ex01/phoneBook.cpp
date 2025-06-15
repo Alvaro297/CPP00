@@ -1,6 +1,11 @@
 #include "phoneBook.hpp"
 
-PhoneBook::PhoneBook() { std::cout << "Constructor of phoneBook" << std::endl; }
+PhoneBook::PhoneBook()
+{
+	std::cout << "Constructor of phoneBook" << std::endl;
+	contactCount = 0;
+	oldestContact = 0;
+}
 PhoneBook::~PhoneBook() { std::cout << "Destructor  of phoneBook" << std::endl; }
 
 std::string removeSpaces(const std::string& str)
