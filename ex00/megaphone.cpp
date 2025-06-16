@@ -8,7 +8,8 @@ int main(int argc, char const *argv[])
 			for (int j = 0; argv[i][j] != '\0'; ++j) {
 				std::cout << static_cast<char>(std::toupper(argv[i][j]));
 			}
-			std::cout << " ";
+			if (i != argc - 1)
+				std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
